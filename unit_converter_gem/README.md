@@ -2,7 +2,7 @@
 
 # UnitConverter Gem
 
-Este é um conversor de unidades para temperaturas, feito com Ruby. Ele permite converter entre Celsius, Fahrenheit e Kelvin.
+Este é um conversor de unidades feito com Ruby. Atualmente, ele suporta conversões de **temperatura** e **distância**.
 
 ## Como Usar
 
@@ -28,6 +28,23 @@ UnitConverter::TemperatureConverter.fahrenheit_to_kelvin(32)  # Retorna 273.15
 
 # Kelvin para Fahrenheit
 UnitConverter::TemperatureConverter.kelvin_to_fahrenheit(273.15)  # Retorna 32
+
+require 'unit_converter'
+
+# Quilômetros para milhas
+puts UnitConverter::DistanceConverter.kilometers_to_miles(10)  # Retorna 6.21371
+
+# Milhas para quilômetros
+puts UnitConverter::DistanceConverter.miles_to_kilometers(10)  # Retorna 16.0934
+
+# Metros para quilômetros
+puts UnitConverter::DistanceConverter.meters_to_kilometers(1000)  # Retorna 1.0
+
+# Quilômetros para jardas
+puts UnitConverter::DistanceConverter.kilometers_to_yards(10)  # Retorna 10936.1
+
+# Quilômetros para milhas náuticas
+puts UnitConverter::DistanceConverter.kilometers_to_nautical_miles(10)  # Retorna 5.39957
 
 ```markdown
 ## Instalação

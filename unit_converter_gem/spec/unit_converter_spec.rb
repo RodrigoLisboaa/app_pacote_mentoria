@@ -56,3 +56,40 @@ RSpec.describe UnitConverter::TemperatureConverter do
     end
   end
 end
+
+RSpec.describe UnitConverter::DistanceConverter do
+  describe '.kilometers_to_miles' do
+    it 'converts kilometers to miles correctly' do
+      expect(UnitConverter::DistanceConverter.kilometers_to_miles(1)).to eq(0.621371)
+      expect(UnitConverter::DistanceConverter.kilometers_to_miles(10)).to eq(6.21371)
+    end
+  end
+
+  describe '.miles_to_kilometers' do
+    it 'converts miles to kilometers correctly' do
+      expect(UnitConverter::DistanceConverter.miles_to_kilometers(1)).to eq(1.6093444978925633)
+      expect(UnitConverter::DistanceConverter.miles_to_kilometers(10)).to eq(16.093444978925632)
+    end
+  end
+
+  describe '.meters_to_kilometers' do
+    it 'converts meters to kilometers correctly' do
+      expect(UnitConverter::DistanceConverter.meters_to_kilometers(1000)).to eq(1)
+      expect(UnitConverter::DistanceConverter.meters_to_kilometers(500)).to eq(0.5)
+    end
+  end
+
+  describe '.kilometers_to_yards' do
+    it 'converts kilometers to yards correctly' do
+      expect(UnitConverter::DistanceConverter.kilometers_to_yards(1)).to eq(1093.61)
+      expect(UnitConverter::DistanceConverter.kilometers_to_yards(10)).to be_within(0.01).of(10936.1)
+    end
+  end
+
+  describe '.kilometers_to_nautical_miles' do
+    it 'converts kilometers to nautical miles correctly' do
+      expect(UnitConverter::DistanceConverter.kilometers_to_nautical_miles(1)).to eq(0.539957)
+      expect(UnitConverter::DistanceConverter.kilometers_to_nautical_miles(10)).to be_within(0.00001).of(5.39957)
+    end
+  end
+end
