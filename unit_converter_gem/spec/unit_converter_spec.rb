@@ -10,7 +10,7 @@ RSpec.describe UnitConverter do
   end
 end
 
-
+require 'spec_helper'
 require 'unit_converter'
 
 RSpec.describe UnitConverter::TemperatureConverter do
@@ -134,6 +134,104 @@ RSpec.describe UnitConverter::WeightConverter do
     it 'converts ounces to pounds correctly' do
       expect(UnitConverter::WeightConverter.ounces_to_pounds(1)).to eq(0.0625)
       expect(UnitConverter::WeightConverter.ounces_to_pounds(10)).to eq(0.625)
+    end
+  end
+end
+
+RSpec.describe UnitConverter::VolumeConverter do
+  describe ".liters_to_gallons" do
+    it "converts liters to gallons correctly" do
+      expect(UnitConverter::VolumeConverter.liters_to_gallons(1)).to be_within(0.0001).of(0.264172)
+    end
+  end
+
+  describe ".gallons_to_liters" do
+    it "converts gallons to liters correctly" do
+      expect(UnitConverter::VolumeConverter.gallons_to_liters(1)).to be_within(0.0001).of(3.78541)
+    end
+  end
+
+  describe ".liters_to_quarts" do
+    it "converts liters to quarts correctly" do
+      expect(UnitConverter::VolumeConverter.liters_to_quarts(1)).to be_within(0.0001).of(1.05669)
+    end
+  end
+
+  describe ".quarts_to_liters" do
+    it "converts quarts to liters correctly" do
+      expect(UnitConverter::VolumeConverter.quarts_to_liters(1)).to be_within(0.0001).of(0.946353)
+    end
+  end
+
+  describe ".gallons_to_quarts" do
+    it "converts gallons to quarts correctly" do
+      expect(UnitConverter::VolumeConverter.gallons_to_quarts(1)).to eq(4.0)
+    end
+  end
+
+  describe ".quarts_to_gallons" do
+    it "converts quarts to gallons correctly" do
+      expect(UnitConverter::VolumeConverter.quarts_to_gallons(1)).to eq(0.25)
+    end
+  end
+
+  describe ".tablespoons_to_ml" do
+    it "converts tablespoons to milliliters correctly" do
+      expect(UnitConverter::VolumeConverter.tablespoons_to_ml(1)).to be_within(0.0001).of(14.7868)
+    end
+  end
+
+  describe ".ml_to_tablespoons" do
+    it "converts milliliters to tablespoons correctly" do
+      expect(UnitConverter::VolumeConverter.ml_to_tablespoons(1)).to be_within(0.0001).of(0.067628)
+    end
+  end
+
+  describe ".cups_to_liters" do
+    it "converts cups to liters correctly" do
+      expect(UnitConverter::VolumeConverter.cups_to_liters(1)).to be_within(0.0001).of(0.236588)
+    end
+  end
+
+  describe ".liters_to_cups" do
+    it "converts liters to cups correctly" do
+      expect(UnitConverter::VolumeConverter.liters_to_cups(1)).to be_within(0.0001).of(4.22675)
+    end
+  end
+
+  describe ".cups_to_ml" do
+    it "converts cups to milliliters correctly" do
+      expect(UnitConverter::VolumeConverter.cups_to_ml(1)).to eq(236.588)
+    end
+  end
+
+  describe ".ml_to_cups" do
+    it "converts milliliters to cups correctly" do
+      expect(UnitConverter::VolumeConverter.ml_to_cups(1)).to be_within(0.0001).of(0.00422675)
+    end
+  end
+
+  describe ".pints_to_liters" do
+    it "converts pints to liters correctly" do
+      expect(UnitConverter::VolumeConverter.pints_to_liters(1)).to be_within(0.0001).of(0.473176)
+    end
+  end
+
+  describe ".liters_to_pints" do
+    it "converts liters to pints correctly" do
+      expect(UnitConverter::VolumeConverter.liters_to_pints(1)).to be_within(0.0001).of(2.11338)
+    end
+  end
+
+  describe ".gallons_to_ml" do
+    it "converts gallons to milliliters correctly" do
+      expect(UnitConverter::VolumeConverter.gallons_to_ml(1)).to eq(3785.41)
+    end
+  end
+
+  describe ".ml_to_gallons" do
+    it "converts milliliters to gallons correctly" do
+      expect(UnitConverter::VolumeConverter.ml_to_gallons(1)).to be_within(0.0001).of(0.000264172)
     end
   end
 end

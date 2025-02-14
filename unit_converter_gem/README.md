@@ -2,7 +2,7 @@
 
 # UnitConverter Gem
 
-Este é um conversor de unidades feito com Ruby. Ele permite converter entre diferentes unidades de **temperatura, distância e peso/massa**.
+`UnitConverter` é uma gem simples para conversões de unidades entre várias categorias, como temperatura, peso/massa, distância, volume e mais. Este projeto tem como objetivo fornecer uma maneira fácil de fazer essas conversões em Ruby.
 
 ## Como Usar
 
@@ -30,8 +30,6 @@ UnitConverter::TemperatureConverter.fahrenheit_to_kelvin(32)  # Retorna 273.15
 
 # Kelvin para Fahrenheit
 UnitConverter::TemperatureConverter.kelvin_to_fahrenheit(273.15)  # Retorna 32
-
-require 'unit_converter'
 
 Conversão de Distância:
 
@@ -69,6 +67,45 @@ UnitConverter::WeightConverter.pounds_to_ounces(1)  # Retorna 16.0
 
 # Onças para Libras
 UnitConverter::WeightConverter.ounces_to_pounds(1)  # Retorna 0.0625
+
+Conversão de Volume:
+
+# Litros para Galões
+UnitConverter::VolumeConverter.liters_to_gallons(1)  # Retorna 0.264172
+UnitConverter::VolumeConverter.gallons_to_liters(1)  # Retorna 3.78541
+
+# Litros para Onças Fluidas
+UnitConverter::VolumeConverter.liters_to_ounces(1)  # Retorna 33.814
+UnitConverter::VolumeConverter.ounces_to_liters(1)  # Retorna 0.0295735
+
+# Litros para Colheres de Sopa
+UnitConverter::VolumeConverter.liters_to_tablespoons(1)  # Retorna 67.628
+UnitConverter::VolumeConverter.tablespoons_to_liters(1)  # Retorna 0.0147868
+
+# Mililitros para Colheres de Sopa
+UnitConverter::VolumeConverter.ml_to_tablespoons(1)  # Retorna 0.067628
+UnitConverter::VolumeConverter.tablespoons_to_ml(1)  # Retorna 14.7868
+
+# Litros para Xícaras
+UnitConverter::VolumeConverter.liters_to_cups(1)  # Retorna 4.22675
+UnitConverter::VolumeConverter.cups_to_liters(1)  # Retorna 0.236588
+
+# Mililitros para Xícaras
+UnitConverter::VolumeConverter.ml_to_cups(1)  # Retorna 0.00422675
+UnitConverter::VolumeConverter.cups_to_ml(1)  # Retorna 236.588
+
+# Galões para Onças Fluidas
+UnitConverter::VolumeConverter.gallons_to_ounces(1)  # Retorna 128
+UnitConverter::VolumeConverter.ounces_to_gallons(1)  # Retorna 0.0078125
+
+# Galões para Colheres de Sopa
+UnitConverter::VolumeConverter.gallons_to_tablespoons(1)  # Retorna 256
+UnitConverter::VolumeConverter.tablespoons_to_gallons(1)  # Retorna 0.00390625
+
+# Galões para Xícaras
+UnitConverter::VolumeConverter.gallons_to_cups(1)  # Retorna 16
+UnitConverter::VolumeConverter.cups_to_gallons(1)  # Retorna 0.0625
+
 
 ```markdown
 ## Instalação
