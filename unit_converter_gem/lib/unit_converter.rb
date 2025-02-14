@@ -3,6 +3,7 @@
 require_relative "unit_converter/version"
 require_relative "unit_converter/temperature_converter"
 require_relative "unit_converter/distance_converter"
+require_relative "unit_converter/weight_converter"
 
 module UnitConverter
   class TemperatureConverter

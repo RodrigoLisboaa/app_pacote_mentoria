@@ -2,13 +2,15 @@
 
 # UnitConverter Gem
 
-Este é um conversor de unidades feito com Ruby. Atualmente, ele suporta conversões de **temperatura** e **distância**.
+Este é um conversor de unidades feito com Ruby. Ele permite converter entre diferentes unidades de **temperatura, distância e peso/massa**.
 
 ## Como Usar
 
 Para usar o conversor, basta chamar o método apropriado para a conversão desejada.
 
 ### Exemplo:
+
+#### Conversão de Temperatura:
 
 ```ruby
 # Celsius para Fahrenheit
@@ -31,6 +33,8 @@ UnitConverter::TemperatureConverter.kelvin_to_fahrenheit(273.15)  # Retorna 32
 
 require 'unit_converter'
 
+Conversão de Distância:
+
 # Quilômetros para milhas
 puts UnitConverter::DistanceConverter.kilometers_to_miles(10)  # Retorna 6.21371
 
@@ -45,6 +49,26 @@ puts UnitConverter::DistanceConverter.kilometers_to_yards(10)  # Retorna 10936.1
 
 # Quilômetros para milhas náuticas
 puts UnitConverter::DistanceConverter.kilometers_to_nautical_miles(10)  # Retorna 5.39957
+
+Conversão de Peso/Massa:
+
+# Quilogramas para Libras
+UnitConverter::WeightConverter.kilograms_to_pounds(1)  # Retorna 2.20462
+
+# Libras para Quilogramas
+UnitConverter::WeightConverter.pounds_to_kilograms(1)  # Retorna 0.453592
+
+# Quilogramas para Onças
+UnitConverter::WeightConverter.kilograms_to_ounces(1)  # Retorna 35.274
+
+# Onças para Quilogramas
+UnitConverter::WeightConverter.ounces_to_kilograms(1)  # Retorna 0.0283495
+
+# Libras para Onças
+UnitConverter::WeightConverter.pounds_to_ounces(1)  # Retorna 16.0
+
+# Onças para Libras
+UnitConverter::WeightConverter.ounces_to_pounds(1)  # Retorna 0.0625
 
 ```markdown
 ## Instalação

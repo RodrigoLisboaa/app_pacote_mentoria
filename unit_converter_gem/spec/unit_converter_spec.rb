@@ -93,3 +93,47 @@ RSpec.describe UnitConverter::DistanceConverter do
     end
   end
 end
+
+RSpec.describe UnitConverter::WeightConverter do
+  describe '.kilograms_to_pounds' do
+    it 'converts kilograms to pounds correctly' do
+      expect(UnitConverter::WeightConverter.kilograms_to_pounds(1)).to eq(2.20462)
+      expect(UnitConverter::WeightConverter.kilograms_to_pounds(10)).to eq(22.0462)
+    end
+  end
+
+  describe '.pounds_to_kilograms' do
+    it 'converts pounds to kilograms correctly' do
+      expect(UnitConverter::WeightConverter.pounds_to_kilograms(1)).to be_within(0.00001).of(0.453592)
+      expect(UnitConverter::WeightConverter.pounds_to_kilograms(10)).to be_within(0.00001).of(4.53592)
+    end
+  end
+
+  describe '.kilograms_to_ounces' do
+    it 'converts kilograms to ounces correctly' do
+      expect(UnitConverter::WeightConverter.kilograms_to_ounces(1)).to eq(35.274)
+      expect(UnitConverter::WeightConverter.kilograms_to_ounces(10)).to eq(352.74)
+    end
+  end
+
+  describe '.ounces_to_kilograms' do
+    it 'converts ounces to kilograms correctly' do
+      expect(UnitConverter::WeightConverter.ounces_to_kilograms(1)).to be_within(0.00001).of(0.0283495)
+      expect(UnitConverter::WeightConverter.ounces_to_kilograms(10)).to be_within(0.00001).of(0.283495)
+    end
+  end
+
+  describe '.pounds_to_ounces' do
+    it 'converts pounds to ounces correctly' do
+      expect(UnitConverter::WeightConverter.pounds_to_ounces(1)).to eq(16)
+      expect(UnitConverter::WeightConverter.pounds_to_ounces(10)).to eq(160)
+    end
+  end
+
+  describe '.ounces_to_pounds' do
+    it 'converts ounces to pounds correctly' do
+      expect(UnitConverter::WeightConverter.ounces_to_pounds(1)).to eq(0.0625)
+      expect(UnitConverter::WeightConverter.ounces_to_pounds(10)).to eq(0.625)
+    end
+  end
+end
