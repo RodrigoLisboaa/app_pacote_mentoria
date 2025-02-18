@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "web_trends_scraper/version"
+require_relative 'web_trends_scraper/reddit_scraper'
 require 'nokogiri'
 require 'open-uri'
 
@@ -8,18 +9,38 @@ module WebTrendsScraper
   class Error < StandardError; end
   
   class Scraper
-    def initialize(url)
-      @url = url
+    SOURCES = {
+      hacker_news: 'https://news.ycombinator.com/',
+      reddit: 'reddit' # Definimos um identificador genérico para Reddit
+    }
+
+    def initialize(source, subreddit = nil)
+      @source = source.to_sym
+      @subreddit = subreddit # Parâmetro opcional para especificar subreddits no Reddit
+      @url = SOURCES[@source]
+      raise Error, "Fonte desconhecida" unless @url || @source == :reddit
     end
 
     def fetch_trends
-      # Carrega a página com UTF-8
-      page = Nokogiri::HTML(URI.open(@url), nil, 'UTF-8')
+      case @source
+      when :hacker_news
+        page = Nokogiri::HTML(URI.open(@url, 'User-Agent' => 'Mozilla/5.0'))
+        scrape_hacker_news(page)
+      when :reddit
+        fetch_reddit_trends # Chama a API JSON em vez do Nokogiri
+      else
+        raise Error, "Scraping não implementado para #{@source}"
+      end
+    end
 
-      # Pega os títulos das notícias no Hacker News, excluindo "More"
-      trends = page.css('span.titleline > a').map(&:text).reject { |text| text == "More" }
+    private
 
-      return trends
+    def scrape_hacker_news(page)
+      page.css('span.titleline > a').map(&:text)
+    end
+
+    def fetch_reddit_trends
+      return RedditScraper.fetch_trends(@subreddit || 'technology')
     end
   end
 end
