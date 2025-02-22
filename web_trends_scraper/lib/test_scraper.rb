@@ -1,11 +1,11 @@
 require_relative 'web_trends_scraper'
 
 # Defina aqui qual fonte e subreddit você quer testar
-source = :reddit # Pode ser :hacker_news ou :reddit
-subreddit = 'technology' # Escolha o subreddit, por exemplo: 'programming', 'trendingsubreddits'
+source = :product_hunt # Pode ser :hacker_news, :reddit ou :product_hunt
+subreddit = 'technology' # Apenas usado se a fonte for Reddit
 
 scraper = WebTrendsScraper::Scraper.new(source, subreddit)
 trends = scraper.fetch_trends
 
-puts "Tendências encontradas em #{subreddit.capitalize}:"
+puts "Tendências encontradas em #{source.to_s.capitalize.gsub('_', ' ')}:"
 puts trends
