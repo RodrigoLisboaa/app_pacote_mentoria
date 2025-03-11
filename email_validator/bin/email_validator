@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require_relative "../lib/email_validator"
+
+email = ARGV[0]
+
+if email.nil?
+  puts "Uso: email_validator 'seu@email.com'"
+  exit 1
+end
+
+if EmailValidator::Validator.valid?(email)
+  puts "✅ E-mail válido!"
+else
+  puts "❌ E-mail inválido!"
+  
+  suggestion = EmailValidator::Validator.suggest_correction(email)
+  
+  if suggestion
+    puts "🔍 Você quis dizer: #{email.split('@').first}@#{suggestion}?"
+  end
+end
